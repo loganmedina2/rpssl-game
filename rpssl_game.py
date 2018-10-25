@@ -17,6 +17,10 @@ computer_choice = ""
 def choice_to_number(choice):
     """Convert choice to number."""
 
+    return {'rock': 0, 'paper': 1, 'scissors': 2, 'spock': 3, 'lizard': 4}[choice]
+    #index this
+
+
     # TODO: Implement
     # NOTE
     # A dictionary-based solution (see Clever Programmer tutorial and assignment README) will be preferred.
@@ -24,12 +28,15 @@ def choice_to_number(choice):
     # 1. Dictionary-based solution: 100%
     # 2. Chain-of-if-statements solution: 80%
 
-    raise NotImplementedError
+
 
 
 def number_to_choice(number):
     """Convert number to choice."""
 
+    return {0 :'rock', 1 :'paper', 2 :'scissors', 3 :'spock', 4 :'lizard'}[number]
+
+
     # TODO: Implement
     # NOTE
     # A dictionary-based solution (see Clever Programmer tutorial and assignment README) will be preferred.
@@ -37,15 +44,17 @@ def number_to_choice(number):
     # 1. Dictionary-based solution: 100%
     # 2. Chain-of-if-statements solution: 80%
 
-    raise NotImplementedError
+
 
 
 def random_computer_choice():
     """Choose randomly for computer."""
+    return random.choice(['rock', 'paper', 'scissor', 'spock', 'lizard'])
+
 
     # TODO: Implement (Hint: Look up random.choice())
 
-    raise NotImplementedError
+
 
 
 def choice_result(human_move, computer_move):
@@ -61,9 +70,22 @@ def choice_result(human_move, computer_move):
     global HUMAN_SCORE
 
     # TODO: Implement
-    # Based on the given human_choice and computer_choice,
-    # determine who won and increment their score by 1.
-    # In case of tie, don't increment anyone's score.
+    computer_choice_number = choice_to_number(computer_choice)
+    human_choice_number = choice_to_number(human_choice)
+
+
+    if human_choice == computer_choice:
+        print("you tie")
+
+    elif (human_choice_number - computer_choice_number) % 5 in [1, 3]:
+        print("human wins!")
+        HUMAN_SCORE += 1
+
+
+    else:
+        print("COMPUTER win!")
+        COMPUTER_SCORE += 1
+
 
     # NOTE
     # A modulo-based solution (see Clever Programmer tutorial and assignment README) will be preferred.
@@ -71,7 +93,7 @@ def choice_result(human_move, computer_move):
     # 1. Modulo-based solution: 100%
     # 2. Chain-of-if-statements solution: 80%
 
-    raise NotImplementedError
+
 
 
 # DO NOT REMOVE THESE TEST FUNCTIONS.
