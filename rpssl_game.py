@@ -6,6 +6,7 @@ Rock paper scissors
 import random
 
 # Global variables that all functions know about.
+
 # DO NOT EDIT THESE GLOBAL VARIABLES
 # OR YOUR GAME WILL BREAK.
 COMPUTER_SCORE = 0
